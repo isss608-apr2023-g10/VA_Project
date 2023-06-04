@@ -1,0 +1,20 @@
+---
+title: "About G10"
+image: images/about_image.jpg
+about:
+  template: marquee
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/isss608-apr2023-g10/VA_Project
+sidebar: false
+pagetitle: "G10"
+---
+
+### Group Members:
+
+-   DENG Zhan
+
+-   LIU Jiaqi
+
+-   TAN Xin Xian Wilson

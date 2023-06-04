@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "ISSS608 VA G10 Project Page"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Project Proposal
+    right:
+      - about.qmd
+
+format:
+  html:
+    theme: lumen
+    css: styles.css
+    toc: true
+    page-layout: full
+
+editor: visual
+
