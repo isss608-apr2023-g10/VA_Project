@@ -65,3 +65,7 @@ Similar investigation as the previous part will be used to identify new temporal
 All of the above will be brought together and built into a Shiny application. As there are some limitations to achieve full interactivity of network plots using Quarto website in Take-home Exercise 2 (due to javascript memory limitations), we hope to use this project to test the limits of the full extent of interactivity and adjustable user input that can be achieved with a Shiny app instead of a Quarto document.
 
 One such element would be the ability for the user to define the exact years and HS codes of trade data to explore, as a smaller network would be much easier for visual inspection and comparison.
+
+An example of interactivity is shown below. The plot is still very complicated and being able to drill down to years and HS codes would help to make the network plots more manageable for analysis.
+
+![Achieving Interactivity in Network Plots](images/interactivity.png)
