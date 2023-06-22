@@ -117,7 +117,7 @@ ui <- page_navbar(
       sidebar = sidebar(
         title = "Select Inputs for Network Plot",
         selectInput("product_type", "Product Type:",
-                    c(0, 1, 2, 3, 4, 5, 6, 7, 8)),
+                    c(1, 2, 3, 4, 5, 6, 7, 8)),
         selectInput(
           "filter", "Percentile by Revenue:",
           list("0 - 25th" = "revenue_omu <= one",
