@@ -1,0 +1,71 @@
+---
+title: "ISSS608 VAA Project Proposal - Group 10"
+---
+
+# G10 Project Proposal
+
+Group members:
+
+-   Deng Zhan
+
+-   Liu Jiaqi
+
+-   Tan Xin Xian Wilson
+
+## Problem Statement and Challenge Selection
+
+Our group has decided to tackle mini-challenge 2 of [VAST challenge 2023](https://vast-challenge.github.io/2023/MC2.html). The goal is to use various visual analytics tools, such as network plots, to help FishEye identify companies that may be engaged in illegal fishing. The following questions will be addressed:
+
+1.  Use visual analytics to identify temporal patterns for individual entities and between entities in the knowledge graph FishEye created from trade records. Categorize the types of business relationship patterns.
+
+2.  Evaluate the sets of predicted knowledge graph links FishEye has provided using visual analytics. Which sets are most reliable for completing the graph?
+
+3.  Illustrate how your visual analytics approach can be used to identify new patterns and/or anomalies that are present in the knowledge graph after you have added the links you deemed reliable in question 2.
+
+4.  Identify companies that fit a pattern of illegal fishing.
+
+## Motivation
+
+Illegal fishing poses a significant threat to the sustainability and conservation of marine resources. It damages marine ecosystems and disrupts the delicate balance of marine habitats. Overfishing also depletes fish stocks and threatens the availability of seafood as a food source.
+
+Illegal fishing practices often involve the use of destructive methods such as dynamite or poison, which harm not only the targeted fish species but also other marine life and underwater habitats.
+
+Illegal fishing also undermines the economic interests of legitimate fishermen and fishing communities. It creates unfair competition, reduces market prices, and negatively impacts the livelihoods of those who depend on fishing as a source of income.
+
+The visual analytics tool which is to identify illegal fishing is motivated by the need to protect marine resources, conserve ecosystems and sustain fisheries. It is important for the long-term sustainability of our oceans and the well-being of both present and future generations.
+
+## Proposed Approach and Early Prototypes
+
+To better tackle the problems, we will divide the tasks into two parts.
+
+### Questions 1 and 4
+
+Question 1 and 4 will be studied together. By using various network analytics tools such as `igraph`, `ggraph` and `visNetwork`, we will try to identify suspicious business relationships for individual entities and between entities in the knowledge graph.
+
+We will also make use of community detection to examine the business relationship patterns and how the communities form and evolve over time. For example, below is a snapshot of community detection on a network graph using import/export data for year 2034:
+
+![Community Detection](images/cd.png)
+
+Based on Fisheye's past experiences, companies caught fishing illegally will shut down but will then often start up again under a different name. By further exploring the network, we will try to find companies that have returned to their nefarious acts.
+
+To identify such companies, our approach is to focus on the latest centrality metrics of the network nodes and analyze changes in these metrics over time. Our findings from the take-home exercise 2 revealed a few companies with notably high betweenness centrality scores in comparison to others. By examining their ego networks, we discovered a pattern wherein these companies procure significant quantities of products from one or two suppliers, while distributing smaller quantities to multiple other companies---a potential indication of transshipment activities.
+
+![Network plot using Betweenness centrality for node size](images/en.png)
+
+For this project, we will delve deeper into the behavior of these identified companies. Our aim is to gain a better understanding of their operations and ascertain whether they are involved in IUU fishing. Additionally, we will try to identify additional companies exhibiting similar behavioral patterns.
+
+### Questions 2 and 3
+
+Questions 2 and 3 will be studied together. Network plots will be compared with and without the 12 groups of link suggestions provided by FishEye to ascertain which links are the most effective in completing the network.
+
+Similar investigation as the previous part will be used to identify new temporal patterns or anomalies that are only present when new links are added.
+
+## Shiny App Development
+
+All of the above will be brought together and built into a Shiny application. As there are some limitations to achieve full interactivity of network plots using Quarto website in Take-home Exercise 2 (due to javascript memory limitations), we hope to use this project to test the limits of the full extent of interactivity and adjustable user input that can be achieved with a Shiny app instead of a Quarto document.
+
+One such element would be the ability for the user to define the exact years and HS codes of trade data to explore, as a smaller network would be much easier for visual inspection and comparison.
+
+An example of interactivity is shown below. The plot is still very complicated and being able to drill down to years and HS codes would help to make the network plots more manageable for analysis.
+
+![Achieving Interactivity in Network Plots](images/interactivity.png)

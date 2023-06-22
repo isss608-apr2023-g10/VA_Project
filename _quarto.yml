@@ -5,14 +5,17 @@ website:
   title: "ISSS608 VA G10 Project Page"
   navbar:
     left:
-      - href: index.qmd
+      - href: project_proposal.qmd
         text: Project Proposal
+      - href: https://isss608-apr2023-g10.shinyapps.io/G10_Project_Shiny/
+        text: Project Application
     right:
-      - about.qmd
+      - href: index.qmd
+        text: Home
 
 format:
   html:
-    theme: lumen
+    theme: minty
     css: styles.css
     toc: true
     page-layout: full
