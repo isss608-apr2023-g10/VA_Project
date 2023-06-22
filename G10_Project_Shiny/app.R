@@ -86,12 +86,13 @@ cards_overview <- list(
 )
 
 ui <- page_navbar(
-  title = "IUU BUSTERS",
+  title = "IUU FISHING BUSTERS",
   theme = bs_theme(bootswatch = "pulse"),
   nav_panel("Overview",
             layout_sidebar(
               sidebar = sidebar(card_image(file = "images/fisheye.png"),
-                                open = "always"),
+                                open = "always",
+                                card_body(HTML("<br>Sanctioned by FishEye International"))),
               cards_overview[[1]],
               cards_overview[[2]]
             )),
