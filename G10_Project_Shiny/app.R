@@ -253,7 +253,7 @@ ui <- page_navbar(
                 layout_sidebar(
                   sidebar = sidebar(
                     title = "Select Inputs for Network Plot",
-                    selectInput("product_type_revenue", "Product Type (based on Topic Modelling in [2]):",
+                    selectInput("product_type_revenue", "Product Type (based on Topic Modelling in [2], no. of product types should not exceed the chosen number of topics):",
                                 c(1, 2, 3, 4, 5, 6, 7, 8),
                                 selected = 1),
                     selectInput(
@@ -283,7 +283,7 @@ ui <- page_navbar(
                 layout_sidebar(
                   sidebar = sidebar(
                     title = "Select Inputs for Network Plot",
-                    selectInput("product_type_country", "Product Type (based on Topic Modelling in [2]):",
+                    selectInput("product_type_country", "Product Type (based on Topic Modelling in [2], no. of product types should not exceed the chosen number of topics):",
                                 c(1, 2, 3, 4, 5, 6, 7, 8),
                                 selected = 1),
                     selectInput(
