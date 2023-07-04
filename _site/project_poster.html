@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ISSS608 VA G10 Project Page - ISSS608 G10 Project Proposal - IUU Fishing Busters</title>
+<title>ISSS608 VA G10 Project Page - ISSS608 G10 Project Poster</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./project_proposal.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./project_proposal.html" rel="" target="">
  <span class="menu-text">Project Proposal</span></a>
   </li>  
   <li class="nav-item">
@@ -93,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">User Guide for Project Shiny App</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./project_poster.html" rel="" target="">
+    <a class="nav-link active" href="./project_poster.html" rel="" target="" aria-current="page">
  <span class="menu-text">Project Poster</span></a>
   </li>  
 </ul>
@@ -119,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ISSS608 G10 Project Proposal - IUU Fishing Busters</h1>
+<h1 class="title">ISSS608 G10 Project Poster</h1>
 </div>
 
 
@@ -134,82 +134,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Group members:</p>
-<ul>
-<li><p>Deng Zhan</p></li>
-<li><p>Liu Jiaqi</p></li>
-<li><p>Tan Xin Xian Wilson</p></li>
-</ul>
-<section id="problem-statement-and-challenge-selection" class="level2">
-<h2 class="anchored" data-anchor-id="problem-statement-and-challenge-selection">Problem Statement and Challenge Selection</h2>
-<p>Our group has decided to tackle mini-challenge 3 of <a href="https://vast-challenge.github.io/2023/MC3.html">VAST challenge 2023</a>. The goal is to use various visual analytics and develop a new approach to help FishEye better understand fishing business anomalies, as well as identify companies/groups that may be engaged in illegal fishing. The following questions will be addressed:</p>
-<ol type="1">
-<li><p>Use visual analytics to identify anomalies in the business groups present in the knowledge graph.</p></li>
-<li><p>Develop a visual analytics process to find similar businesses and group them. This analysis should focus on a business’s most important features and present those features clearly to the user.</p></li>
-<li><p>Measure similarity of businesses that you group in the previous question. Express confidence in your groupings visually.</p></li>
-<li><p>Based on your visualizations, provide evidence for or against the case that anomalous companies are involved in illegal fishing. Which business groups should FishEye investigate further?</p></li>
-</ol>
-</section>
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-<p>Illegal fishing poses a significant threat to the sustainability and conservation of marine resources. It damages marine ecosystems and disrupts the delicate balance of marine habitats. Overfishing also depletes fish stocks and threatens the availability of seafood as a food source.</p>
-<p>Illegal fishing practices often involve the use of destructive methods such as dynamite or poison, which harm not only the targeted fish species but also other marine life and underwater habitats.</p>
-<p>Illegal fishing also undermines the economic interests of legitimate fishermen and fishing communities. It creates unfair competition, reduces market prices, and negatively impacts the livelihoods of those who depend on fishing as a source of income.</p>
-<p>The visual analytics tool which is to identify illegal fishing is motivated by the need to protect marine resources, conserve ecosystems and sustain fisheries. It is important for the long-term sustainability of our oceans and the well-being of both present and future generations.</p>
-</section>
-<section id="proposed-approach-and-early-prototypes" class="level2">
-<h2 class="anchored" data-anchor-id="proposed-approach-and-early-prototypes">Proposed Approach and Early Prototypes</h2>
-<p>To better tackle the problems, we will divide the tasks into two parts.</p>
-<section id="questions-1-and-4" class="level3">
-<h3 class="anchored" data-anchor-id="questions-1-and-4">Questions 1 and 4</h3>
-<p>Question 1 and 4 will be studied together. By using various network analytics tools such as ggplot and plotly, we will try to identify companies involved in IUU fishing based on their business organizational structures. Companies that could be involved in IUU fishing are identified through 2 different approaches.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/approach1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Approach 1: Find companies registered in more than 2 countries</figcaption><p></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/approach2.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Approach 2: Find companies with abnormal number of beneficial owners and company contacts</figcaption><p></p>
-</figure>
-</div>
-</section>
-<section id="questions-2-and-3" class="level3">
-<h3 class="anchored" data-anchor-id="questions-2-and-3">Questions 2 and 3</h3>
-<p>Questions 2 and 3 will be studied together. Appropriate text analysis techniques (e.g.&nbsp;topic modelling) will be used to group similar business based on their product_services attribute. Then we will compare the business by using quantitative measures such as revenue to explore similarity of business in the groups identified.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/tm.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Example use of Topic Modelling - Top terms for each topic</figcaption><p></p>
-</figure>
-</div>
-<p>For example, from the top terms of each topic we can easily summarize the respective business feature for the groups as following. After that, we will make use of this information to identify anomalous companies or structures involved in illegal fishing as well. • Topic 1: transportation and logistics • Topic 2: fish and other seafood • Topic 3: chemicals and accessories • Topic 4: equipment • Topic 5: food products</p>
-</section>
-</section>
-<section id="shiny-app-development" class="level2">
-<h2 class="anchored" data-anchor-id="shiny-app-development">Shiny App Development</h2>
-<p>All of the above will be brought together and built into a Shiny application. As there are some limitations to achieve full interactivity of network plots using Quarto website in Take-home Exercise 3, we hope to use this project to test the limits of the full extent of interactivity and adjustable user input that can be achieved with a Shiny app instead of a Quarto document. One such element would be the ability for the user to select a particular business group or centrality measure to explore, as a smaller network would be much easier for visual inspection and comparison.</p>
-<p>An initial design of skeleton and page layout is shown below. Each panel will tackle one question from MC3. A sidebar layout will be used for each panel, with user input on the left and visualizations on the right.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/web_sample.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Sample layout of Project Shiny Application</figcaption><p></p>
-</figure>
-</div>
-</section>
-<section id="project-timeline" class="level2">
-<h2 class="anchored" data-anchor-id="project-timeline">Project Timeline</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/timeline.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Project Timeline</figcaption><p></p>
-</figure>
-</div>
+<iframe width="100%" height="100%" src="G10_IUU_Busters_Poster.pdf" title="Project Poster"></iframe>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -11,6 +11,8 @@ website:
         text: Project Shiny Application
       - href: user_guide.qmd
         text: User Guide for Project Shiny App
+      - href: project_poster.qmd
+        text: Project Poster
     right:
       - href: index.qmd
         text: Home

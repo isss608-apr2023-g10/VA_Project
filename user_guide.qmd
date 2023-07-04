@@ -1,8 +1,7 @@
 ---
 title: "ISSS608 G10 User Guide for Project Shiny Application"
-page-layout: full
 ---
 
 ```{=html}
-<iframe width=100% height=100% src="G10_IUU_Busters_User_guide_for_Rshiny.pdf", title="Webpage example"></iframe>
+<iframe width=100% height=100% src="G10_IUU_Busters_User_guide_for_Rshiny.pdf", title="User Guide"></iframe>
 ```
