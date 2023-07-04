@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
+<meta name="generator" content="quarto-1.3.324">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ISSS608 VA G10 Project Page - ISSS608 VAA Project Proposal - Group 10</title>
+<title>ISSS608 VA G10 Project Page - ISSS608 G10 Project Proposal - IUU Fishing Busters</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -86,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://isss608-apr2023-g10.shinyapps.io/G10_Project_Shiny/" rel="" target="">
- <span class="menu-text">Project Application</span></a>
+ <span class="menu-text">Project Shiny Application</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -105,31 +105,13 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#g10-project-proposal" id="toc-g10-project-proposal" class="nav-link active" data-scroll-target="#g10-project-proposal">G10 Project Proposal</a>
-  <ul class="collapse">
-  <li><a href="#problem-statement-and-challenge-selection" id="toc-problem-statement-and-challenge-selection" class="nav-link" data-scroll-target="#problem-statement-and-challenge-selection">Problem Statement and Challenge Selection</a></li>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#proposed-approach-and-early-prototypes" id="toc-proposed-approach-and-early-prototypes" class="nav-link" data-scroll-target="#proposed-approach-and-early-prototypes">Proposed Approach and Early Prototypes</a>
-  <ul class="collapse">
-  <li><a href="#questions-1-and-4" id="toc-questions-1-and-4" class="nav-link" data-scroll-target="#questions-1-and-4">Questions 1 and 4</a></li>
-  <li><a href="#questions-2-and-3" id="toc-questions-2-and-3" class="nav-link" data-scroll-target="#questions-2-and-3">Questions 2 and 3</a></li>
-  </ul></li>
-  <li><a href="#shiny-app-development" id="toc-shiny-app-development" class="nav-link" data-scroll-target="#shiny-app-development">Shiny App Development</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ISSS608 VAA Project Proposal - Group 10</h1>
+<h1 class="title">ISSS608 G10 Project Proposal - IUU Fishing Busters</h1>
 </div>
 
 
@@ -144,8 +126,6 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="g10-project-proposal" class="level1">
-<h1>G10 Project Proposal</h1>
 <p>Group members:</p>
 <ul>
 <li><p>Deng Zhan</p></li>
@@ -154,12 +134,12 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <section id="problem-statement-and-challenge-selection" class="level2">
 <h2 class="anchored" data-anchor-id="problem-statement-and-challenge-selection">Problem Statement and Challenge Selection</h2>
-<p>Our group has decided to tackle mini-challenge 2 of <a href="https://vast-challenge.github.io/2023/MC2.html">VAST challenge 2023</a>. The goal is to use various visual analytics tools, such as network plots, to help FishEye identify companies that may be engaged in illegal fishing. The following questions will be addressed:</p>
+<p>Our group has decided to tackle mini-challenge 3 of <a href="https://vast-challenge.github.io/2023/MC3.html">VAST challenge 2023</a>. The goal is to use various visual analytics and develop a new approach to help FishEye better understand fishing business anomalies, as well as identify companies/groups that may be engaged in illegal fishing. The following questions will be addressed:</p>
 <ol type="1">
-<li><p>Use visual analytics to identify temporal patterns for individual entities and between entities in the knowledge graph FishEye created from trade records. Categorize the types of business relationship patterns.</p></li>
-<li><p>Evaluate the sets of predicted knowledge graph links FishEye has provided using visual analytics. Which sets are most reliable for completing the graph?</p></li>
-<li><p>Illustrate how your visual analytics approach can be used to identify new patterns and/or anomalies that are present in the knowledge graph after you have added the links you deemed reliable in question 2.</p></li>
-<li><p>Identify companies that fit a pattern of illegal fishing.</p></li>
+<li><p>Use visual analytics to identify anomalies in the business groups present in the knowledge graph.</p></li>
+<li><p>Develop a visual analytics process to find similar businesses and group them. This analysis should focus on a business’s most important features and present those features clearly to the user.</p></li>
+<li><p>Measure similarity of businesses that you group in the previous question. Express confidence in your groupings visually.</p></li>
+<li><p>Based on your visualizations, provide evidence for or against the case that anomalous companies are involved in illegal fishing. Which business groups should FishEye investigate further?</p></li>
 </ol>
 </section>
 <section id="motivation" class="level2">
@@ -174,44 +154,53 @@ ul.task-list li input[type="checkbox"] {
 <p>To better tackle the problems, we will divide the tasks into two parts.</p>
 <section id="questions-1-and-4" class="level3">
 <h3 class="anchored" data-anchor-id="questions-1-and-4">Questions 1 and 4</h3>
-<p>Question 1 and 4 will be studied together. By using various network analytics tools such as <code>igraph</code>, <code>ggraph</code> and <code>visNetwork</code>, we will try to identify suspicious business relationships for individual entities and between entities in the knowledge graph.</p>
-<p>We will also make use of community detection to examine the business relationship patterns and how the communities form and evolve over time. For example, below is a snapshot of community detection on a network graph using import/export data for year 2034:</p>
+<p>Question 1 and 4 will be studied together. By using various network analytics tools such as ggplot and plotly, we will try to identify companies involved in IUU fishing based on their business organizational structures. Companies that could be involved in IUU fishing are identified through 2 different approaches.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/cd.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Community Detection</figcaption>
+<p><img src="images/approach1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Approach 1: Find companies registered in more than 2 countries</figcaption><p></p>
 </figure>
 </div>
-<p>Based on Fisheye’s past experiences, companies caught fishing illegally will shut down but will then often start up again under a different name. By further exploring the network, we will try to find companies that have returned to their nefarious acts.</p>
-<p>To identify such companies, our approach is to focus on the latest centrality metrics of the network nodes and analyze changes in these metrics over time. Our findings from the take-home exercise 2 revealed a few companies with notably high betweenness centrality scores in comparison to others. By examining their ego networks, we discovered a pattern wherein these companies procure significant quantities of products from one or two suppliers, while distributing smaller quantities to multiple other companies—a potential indication of transshipment activities.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/en.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Network plot using Betweenness centrality for node size</figcaption>
+<p><img src="images/approach2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Approach 2: Find companies with abnormal number of beneficial owners and company contacts</figcaption><p></p>
 </figure>
 </div>
-<p>For this project, we will delve deeper into the behavior of these identified companies. Our aim is to gain a better understanding of their operations and ascertain whether they are involved in IUU fishing. Additionally, we will try to identify additional companies exhibiting similar behavioral patterns.</p>
 </section>
 <section id="questions-2-and-3" class="level3">
 <h3 class="anchored" data-anchor-id="questions-2-and-3">Questions 2 and 3</h3>
-<p>Questions 2 and 3 will be studied together. Network plots will be compared with and without the 12 groups of link suggestions provided by FishEye to ascertain which links are the most effective in completing the network.</p>
-<p>Similar investigation as the previous part will be used to identify new temporal patterns or anomalies that are only present when new links are added.</p>
+<p>Questions 2 and 3 will be studied together. Appropriate text analysis techniques (e.g.&nbsp;topic modelling) will be used to group similar business based on their product_services attribute. Then we will compare the business by using quantitative measures such as revenue to explore similarity of business in the groups identified.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tm.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Example use of Topic Modelling - Top terms for each topic</figcaption><p></p>
+</figure>
+</div>
+<p>For example, from the top terms of each topic we can easily summarize the respective business feature for the groups as following. After that, we will make use of this information to identify anomalous companies or structures involved in illegal fishing as well. • Topic 1: transportation and logistics • Topic 2: fish and other seafood • Topic 3: chemicals and accessories • Topic 4: equipment • Topic 5: food products</p>
 </section>
 </section>
 <section id="shiny-app-development" class="level2">
 <h2 class="anchored" data-anchor-id="shiny-app-development">Shiny App Development</h2>
-<p>All of the above will be brought together and built into a Shiny application. As there are some limitations to achieve full interactivity of network plots using Quarto website in Take-home Exercise 2 (due to javascript memory limitations), we hope to use this project to test the limits of the full extent of interactivity and adjustable user input that can be achieved with a Shiny app instead of a Quarto document.</p>
-<p>One such element would be the ability for the user to define the exact years and HS codes of trade data to explore, as a smaller network would be much easier for visual inspection and comparison.</p>
-<p>An example of interactivity is shown below. The plot is still very complicated and being able to drill down to years and HS codes would help to make the network plots more manageable for analysis.</p>
+<p>All of the above will be brought together and built into a Shiny application. As there are some limitations to achieve full interactivity of network plots using Quarto website in Take-home Exercise 3, we hope to use this project to test the limits of the full extent of interactivity and adjustable user input that can be achieved with a Shiny app instead of a Quarto document. One such element would be the ability for the user to select a particular business group or centrality measure to explore, as a smaller network would be much easier for visual inspection and comparison.</p>
+<p>An initial design of skeleton and page layout is shown below. Each panel will tackle one question from MC3. A sidebar layout will be used for each panel, with user input on the left and visualizations on the right.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/interactivity.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Achieving Interactivity in Network Plots</figcaption>
+<p><img src="images/web_sample.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Sample layout of Project Shiny Application</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="project-timeline" class="level2">
+<h2 class="anchored" data-anchor-id="project-timeline">Project Timeline</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/timeline.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Project Timeline</figcaption><p></p>
 </figure>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

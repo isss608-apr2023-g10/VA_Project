@@ -1,5 +1,7 @@
-pacman::p_load(jsonlite, tidygraph, ggraph, visNetwork, graphlayouts, ggforce, skimr, tidytext, tidyverse, DT, ggiraph, tm, topicmodels, shiny, shinythemes, bslib, ggplot2)
+#load packages 
+pacman::p_load(jsonlite, tidygraph, ggraph, visNetwork, graphlayouts, ggforce, skimr, tidytext, topicdoc, tidyverse, plotly, DT, ggiraph, tm, topicmodels, shiny, shinythemes, bslib, PMCMRplus, ggplot2)
 
+#load dataset
 json_file_path <- "data/MC3.json"
 mc3_file_path <- "data/mc3.rds"
 
@@ -10,6 +12,7 @@ if (!file.exists(mc3_file_path)) {
   mc3_data <- readRDS(mc3_file_path)
 }
 
+#extract edges from JSON
 mc3_edges <- as_tibble(mc3_data$links) %>% 
   distinct() %>%
   mutate(source = as.character(source),
@@ -20,6 +23,7 @@ mc3_edges <- as_tibble(mc3_data$links) %>%
   filter(source!=target) %>%
   ungroup()
 
+#extract nodes from JSON
 mc3_nodes <- as_tibble(mc3_data$nodes) %>%
   mutate(country = as.character(country),
          id = as.character(id),
@@ -38,23 +42,58 @@ mc3_nodes$product_services <-
 filtered_mc3_nodes <- mc3_nodes %>%
   filter(product_services != "Unknown")
 
-# Preprocessing
+# Text Preprocessing (removed stemming)
 corpus <- Corpus(VectorSource(filtered_mc3_nodes$product_services))
 corpus <- tm_map(corpus, content_transformer(tolower))
 corpus <- tm_map(corpus, removePunctuation)
 corpus <- tm_map(corpus, removeNumbers)
 corpus <- tm_map(corpus, removeWords, stopwords("english"))
 corpus <- tm_map(corpus, stripWhitespace)
-corpus <- tm_map(corpus, stemDocument)
 
 # Text Transformation
 dtm <- DocumentTermMatrix(corpus)
 
-# Build LDA model
-num_topics = 8
-lda <- LDA(dtm, k = num_topics)
+#file saving
+saveRDS(filtered_mc3_nodes, file = "data/filtered_mc3_nodes.rds")
+saveRDS(dtm, file = "data/dtm.rds")
 
-# Assigning topics as product_type
+#Q2 code
+#filter out beneficial owner only, and summarize their number of company ownership
+owner_freq <- mc3_edges %>% 
+  filter(type == "Beneficial Owner") %>%
+  group_by(target) %>%
+  summarise(companies_owned=n()) %>%
+  arrange(desc(companies_owned)) %>%
+  filter(companies_owned >1) %>%
+  ungroup()
+
+#Suspicious target person who owns more than or equal to 5 companies
+owner_freq_reduced  <- owner_freq %>% 
+  filter(companies_owned >= 5) 
+
+#filter out edges with the suspicious beneficial owner only
+sub_edge <- mc3_edges %>% 
+  filter(target %in% c(owner_freq_reduced$target)) %>%
+  rename(from = source) %>%
+  rename(to = target)
+
+#update node list
+id1 <- sub_edge %>%
+  select(from) %>%
+  rename(id = from)
+id2 <- sub_edge %>%
+  select(to) %>%
+  rename(id = to)
+sub_node <- rbind(id1, id2) %>%
+  distinct() 
+
+#file saving 
+saveRDS(sub_edge, file = "data/sub_edge.rds")
+saveRDS(sub_node, file = "data/sub_node.rds")
+saveRDS(mc3_nodes, file = "data/mc3_nodes.rds")
+
+#Q3 code - edited version based on Q2 output
+lda <- LDA(dtm, control=list(seed=1), k = 2) #set random seed
 topics <- topics(lda, 1)  # Get the topic probabilities for each document
 filtered_mc3_nodes$product_type <- topics
 
@@ -105,5 +144,11 @@ one <- revenue_quartiles[2]
 two <- revenue_quartiles[3]
 three <- revenue_quartiles[5]
 
+select_country <- mc3_nodes$country %>% unique() %>% sort()
+
+#file saving
 saveRDS(revenue_quartiles, file = "data/revenue_quartiles.rds")
+saveRDS(mc3_edges_cleaned, file = "data/mc3_edges_cleaned.rds")
+saveRDS(select_country, file = "data/select_country.rds")
+#save new_ver_mc3_graph
 saveRDS(mc3_graph, file = "data/mc3_graph.rds")
